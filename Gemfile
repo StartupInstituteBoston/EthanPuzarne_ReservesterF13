@@ -45,9 +45,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :assets do
-	gem 'twitter-bootstrap-rails'
-end
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'less-rails'
+
 
 group :production, :staging do
       gem 'pg'
