@@ -1,4 +1,12 @@
 
 <h1><%= @restaurant.name %></h1>
-
+<%= link_to("Edit", edit_restaurant_path(@restaurant)) %>
+<%= link_to("Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: 'Are you sure?'}) %>
 <p><%= @restaurant.description %></p>
+
+Address:<p>
+<%= @restaurant.street %><br />
+<%= @restaurant.city %>, <%= @restaurant.state%><br />
+<%= @restaurant.zip%>
+</p>
+Phone: <%= number_to_phone(@restaurant.phone, area_code:true) %>

@@ -1,5 +1,9 @@
 <h1>This is an example</h1>
 
-<% @restaurants.each do |restaurant| %>
-restaurant.title
+<h3>To add a new restaurant, click <%= link_to 'New', new_restaurant_path%></h3>
+
+<% @restaurants.each do |r| %>
+<ul>
+	<%= link_to(r.name, r) %>
+</ul>
 <%end%>

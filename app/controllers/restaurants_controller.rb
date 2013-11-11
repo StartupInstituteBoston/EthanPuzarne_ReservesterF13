@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.order
+    @restaurants = Restaurant.order('name')
   end
 
   def show
@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
   def new
     # display a form to submit a new restaurant
     # form includes name, description, location, phonenumber
-    @restaurants = Restaurant.new()
+    @restaurant = Restaurant.new()
   end
 
   def create
@@ -27,16 +27,27 @@ class RestaurantsController < ApplicationController
   def edit
     # show same form as "new"
     # populate form with restaurant data
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def update
     # receive data from edit form and implement it
     # display confirmation of data change
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update(params[:restaurant].permit(:name,:description,:street,:city,:state,:zip,:phone))
+      redirect_to @restaurant
+    else
+      render 'edit'
+    end
   end
+
 
   def destroy
     # display confirmation for the destruction
     # when user clicks yes, destroy the index in the database
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   private
