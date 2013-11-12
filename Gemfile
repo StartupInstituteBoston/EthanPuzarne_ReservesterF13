@@ -64,4 +64,6 @@ group :development, :test do
     gem 'less-rails'
     gem 'rmagick'
     gem 'carrierwave'
+    gem 'dotenv-rails'
+    gem 'fog'
 end
