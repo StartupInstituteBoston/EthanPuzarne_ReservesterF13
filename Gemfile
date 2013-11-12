@@ -59,6 +59,7 @@ group :production, :staging do
     gem 'carrierwave'
     gem 'dotenv-rails'
     gem 'fog'
+    gem 'rails_12factor'
 end
 
 group :development, :test do
