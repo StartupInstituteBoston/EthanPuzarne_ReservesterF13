@@ -51,7 +51,14 @@ gem 'less-rails'
 
 
 group :production, :staging do
-      gem 'pg'
+    gem 'pg'
+    gem 'twitter-bootstrap-rails'
+    gem 'therubyracer'
+    gem 'less-rails'
+    gem 'rmagick'
+    gem 'carrierwave'
+    gem 'dotenv-rails'
+    gem 'fog'
 end
 
 group :development, :test do
@@ -66,4 +73,5 @@ group :development, :test do
     gem 'carrierwave'
     gem 'dotenv-rails'
     gem 'fog'
+    gem 'unf'
 end
