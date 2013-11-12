@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
     # receive data from edit form and implement it
     # display confirmation of data change
     @restaurant = Restaurant.find(params[:id])
-    if @restaurant.update(params[:restaurant].permit(:name,:description,:street,:city,:state,:zip,:phone))
+    if @restaurant.update(params[:restaurant].permit(:name,:description,:street,:city,:state,:zip,:phone,:photo))
       redirect_to @restaurant
     else
       render 'edit'
@@ -52,6 +52,6 @@ class RestaurantsController < ApplicationController
 
   private
     def restaurant_params
-      params.require(:restaurant).permit(:name,:description,:street,:city,:state,:zip,:phone)
+      params.require(:restaurant).permit(:name,:description,:street,:city,:state,:zip,:phone,:photo)
     end
 end

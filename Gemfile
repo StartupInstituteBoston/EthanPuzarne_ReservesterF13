@@ -55,8 +55,13 @@ group :production, :staging do
 end
 
 group :development, :test do
-      gem 'pg'
-      gem 'rspec-rails', '~>2.0'
-      gem 'factory_girl_rails'
-      gem 'database_cleaner'
+    gem 'pg'
+    gem 'rspec-rails', '~>2.0'
+    gem 'factory_girl_rails'
+    gem 'database_cleaner'
+    gem 'twitter-bootstrap-rails'
+    gem 'therubyracer'
+    gem 'less-rails'
+    gem 'rmagick'
+    gem 'carrierwave'
 end
