@@ -2,8 +2,8 @@
 
 <h3>To add a new restaurant, click <%= link_to 'New', new_restaurant_path%></h3>
 
-<% @restaurants.each do |r| %>
 <ul>
+<% @restaurants.each do |r| %>
 	<li><%=image_tag r.photo_url(:thumb) %><%= link_to(r.name, r) %></li>
+<% end %>
 </ul>
-<%end%>

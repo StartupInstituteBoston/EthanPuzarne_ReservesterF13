@@ -6,7 +6,10 @@ class RestaurantsController < ApplicationController
 
   def show
     # Show a single restaurant with link to edit or destroy
-    @restaurant = Restaurant.find(params[:id])
+    unless @restaurant = Restaurant.find_by(id: params[:id])
+      redirect_to :back, notice: "This restaurant does not exist"
+    end    
+    
   end
 
   def new
@@ -20,20 +23,23 @@ class RestaurantsController < ApplicationController
     # display confirmation method and link to show
     
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
-    redirect_to @restaurant
+    if @restaurant.save
+      redirect_to @restaurant
+    else
+      render action:'new'
+    end
   end
 
   def edit
     # show same form as "new"
     # populate form with restaurant data
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
   def update
     # receive data from edit form and implement it
     # display confirmation of data change
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find_by(id: params[:id])
     if @restaurant.update(params[:restaurant].permit(:name,:description,:street,:city,:state,:zip,:phone,:photo))
       redirect_to @restaurant
     else
@@ -45,7 +51,7 @@ class RestaurantsController < ApplicationController
   def destroy
     # display confirmation for the destruction
     # when user clicks yes, destroy the index in the database
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find_by(params[:id])
     @restaurant.destroy
     redirect_to restaurants_path
   end

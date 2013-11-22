@@ -45,16 +45,10 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'twitter-bootstrap-rails'
-gem 'therubyracer'
-gem 'less-rails'
-
-
 group :production, :staging do
     gem 'pg'
-    gem 'twitter-bootstrap-rails'
-    gem 'therubyracer'
-    gem 'less-rails'
+#    gem 'twitter-bootstrap-rails'
+#    gem 'less-rails'
     gem 'rmagick'
     gem 'carrierwave'
     gem 'dotenv-rails'
@@ -64,15 +58,18 @@ end
 
 group :development, :test do
     gem 'pg'
+    gem 'rspec'
     gem 'rspec-rails', '~>2.0'
     gem 'factory_girl_rails'
     gem 'database_cleaner'
-    gem 'twitter-bootstrap-rails'
-    gem 'therubyracer'
-    gem 'less-rails'
+#    gem 'twitter-bootstrap-rails'
+#    gem 'less-rails'
+#    gem 'rubyracer'
+    gem 'bootstrap-sass', '~> 3.0.2.0'
     gem 'rmagick'
     gem 'carrierwave'
     gem 'dotenv-rails'
     gem 'fog'
     gem 'unf'
+    gem 'simplecov'
 end
